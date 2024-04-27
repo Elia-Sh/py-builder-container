@@ -48,9 +48,30 @@ https://www.python.org/downloads/release/python-3717/
 https://devguide.python.org/getting-started/setup-building/#build-dependencies
 ```
 
-run prepare utility to download py3 source and setup build dir at: `./mounted_volume`
+instructions:
 ```
+#1. run prepare utility to download py3 source and setup build dir at: `./mounted_volume`
 $ /bin/sh prepare_build.sh
+
+#2. start container with locally created dir
+$ docker run -it -v ./mounted_volume:/mnt/mounted_volume py_focal
+
+#3. configure and make -> executed within newly spinned container
+$ cd mnt/mounted_volume/py_src/Python-3.7.17/
+$ ./configure
+$ make install
+
+#4. enjoy newly built python
+$ which python3
+/usr/local/bin/python3
+$ python3
+Python 3.7.17 (default, Apr 27 2024, 15:13:35) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+
 ```
+
+
 
 

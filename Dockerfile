@@ -13,6 +13,7 @@ RUN echo ${focal_archive_str} >> ${sources_file_path}
 RUN apt-get update
 #RUN apt install -y python3
 
+# installing all needed build dep
 # tzdata is req for building python3, setting not interactive install
 RUN DEBIAN_FRONTEND=noninteractive TZ=UTC apt-get -y install tzdata
 # installing rest of dependencies

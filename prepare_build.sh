@@ -1,7 +1,7 @@
 #!/bin/sh 
 
 MOUNTED_VOL_DIR_NAME="mounted_volume"
-PY_SRC_DIR_NAME="py_src3"
+PY_SRC_DIR_NAME="py_src"
 PY3_SRC_PATH="${MOUNTED_VOL_DIR_NAME}/${PY_SRC_DIR_NAME}"
 PY3_SRC_URL="https://www.python.org/ftp/python/3.7.17/Python-3.7.17.tgz"
 
