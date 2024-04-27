@@ -1,8 +1,14 @@
 # syntax=docker/dockerfile:1
 
-FROM ubuntu:focal
+## Defining codename to control over which major release is pulled
+## always refer to docs, https://docs.docker.com/reference/dockerfile/#understand-how-arg-and-from-interact
+ARG VERSION_CODENAME="focal"
+FROM ubuntu:${VERSION_CODENAME}
+
+ARG VERSION_CODENAME="focal"
+RUN echo "setting up ubuntu - ${VERSION_CODENAME}"
 ARG sources_file_path="/etc/apt/sources.list"
-ARG focal_archive_str="deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted"
+ARG focal_archive_str="deb-src http://archive.ubuntu.com/ubuntu/ ${VERSION_CODENAME} main restricted"
 RUN echo ${focal_archive_str} >> ${sources_file_path}
 RUN apt-get update
 #RUN apt install -y python3
